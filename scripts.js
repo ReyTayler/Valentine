@@ -49,7 +49,7 @@ function draw(){
     ctx.globalAlpha = h.alpha;
     ctx.font = `${h.size}px serif`;
     ctx.fillStyle = h.color;
-  ctx.fillText("❤", h.x, h.y);
+    ctx.fillText("❤", h.x, h.y);
 
 
     if(h.y > canvas.height+30) hearts.splice(i,1);
@@ -60,3 +60,4 @@ function draw(){
 }
 
 draw();
+
