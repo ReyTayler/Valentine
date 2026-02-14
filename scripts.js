@@ -22,13 +22,16 @@ window.addEventListener("resize", resize);
 const hearts = [];
 
 function newHeart(){
+  const colors = ["#ff4d88","#ff9ecb","#ffffff","#ffd1dc"];
+
   hearts.push({
     x: Math.random()*canvas.width,
     y: -20,
     size: 12 + Math.random()*18,
     speed: 0.6 + Math.random()*1.2,
     drift: (Math.random()-0.5)*0.6,
-    alpha: 0.5 + Math.random()*0.5
+    alpha: 0.5 + Math.random()*0.5,
+    color: colors[Math.floor(Math.random()*colors.length)]
   });
 }
 
@@ -45,7 +48,9 @@ function draw(){
 
     ctx.globalAlpha = h.alpha;
     ctx.font = `${h.size}px serif`;
-    ctx.fillText("❤", h.x, h.y);
+    ctx.fillStyle = h.color;
+  ctx.fillText("❤", h.x, h.y);
+
 
     if(h.y > canvas.height+30) hearts.splice(i,1);
   }
